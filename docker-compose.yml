@@ -1,0 +1,33 @@
+version: '3.7'
+
+
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    env_file: ./api/.env
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    ports:
+      - 4000:4000
+
+  client:
+    build:
+      context: ./photo-app
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+
+  worker:
+    build:
+      context: ./worker
+      dockerfile: Dockerfile
+    env_file: ./worker/.env
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+
+  redis:
+    image: redis:latest

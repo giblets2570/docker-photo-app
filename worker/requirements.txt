@@ -1,0 +1,10 @@
+albumentations
+numpy
+scipy
+azure-storage
+Flask
+Flask-Cors
+Pillow
+python-dotenv
+redis
+requests

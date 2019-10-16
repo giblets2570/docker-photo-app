@@ -1,0 +1,18 @@
+<div id="upload-container">
+  <p>Click below to upload a photo:</p>
+  <div class="centered-container">
+    <div class="container">
+      <input type="file" name="photo" ng2FileSelect [uploader]="uploader" />
+      <button type="button" class="btn btn-success btn-s"
+        mat-raised-button
+        color="primary"
+        (click)="upload()"
+        [disabled]="!uploader.getNotUploadedItems().length" >
+            Upload an Image
+      </button>
+    </div>
+  </div>
+  <div class="centered-container">
+    <img [src]="filePreviewPath" width="200" *ngIf="filePreviewPath" />
+  </div>
+</div>
